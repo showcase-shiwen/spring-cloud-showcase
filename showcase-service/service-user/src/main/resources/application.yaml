@@ -1,0 +1,25 @@
+server:
+  port: 5003
+
+spring:
+  application:
+    name: showcase-service-user
+
+eureka:
+  client:
+    #表示是否将自己注册进Eurekaserver默认为true。
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:5000/eureka #Eureka服务端地址
+  instance:
+    instance-id: ${spring.application.name}
+    prefer-ip-address: true
+
+# 设置Ribbon的超时时间
+ribbon:
+  eureka:
+    enabled: true
+  ConnectTimeout: 1000 # 连接超时时间 默认1s  默认单位毫秒
+  ReadTimeout: 3000 # 逻辑处理的超时时间 默认1s 默认单位毫秒
