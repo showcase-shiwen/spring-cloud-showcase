@@ -18,11 +18,11 @@ public class UserFeign implements UserClient {
 
     @Override
     public UserVo getUserById(Long userId) {
-        UserVo userVo=new UserVo();
         User user= userService.getByUserId(userId);
         if(user==null){
             return null;
         }
+        UserVo userVo=new UserVo();
         BeanUtils.copyProperties(user,userVo);
         return userVo;
     }
