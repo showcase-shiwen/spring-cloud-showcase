@@ -3,9 +3,8 @@
 
     <property name="LOG_HOME" value="logs"/>
     <property name="PROJECT_NAME" value="showcase-eureka"/>
-    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] [%thread] [%-5level] %c:%L -- %msg%n"/>
-<!--    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] [%thread] [%-5level] %c:%L &#45;&#45; %msg%n"/>-->
-    <!--参见  https://blog.csdn.net/foreverling/article/details/51385128-->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] [%thread] [%level] %c:%L -- %msg%n"/>
+    <!--参见  https://blog.csdn.net/foreverling/article/details/51385128   -->
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -105,25 +104,20 @@
     <logger name="org.apache.catalina" level="error"/>
 
 
-    <logger name="emmc" additivity="true" level="error">
+    <logger name="org.showcase" additivity="true" level="error">
         <appender-ref ref="error"/>
     </logger>
-    <logger name="emmc" additivity="true" level="warn">
+    <logger name="org.showcase" additivity="true" level="warn">
         <appender-ref ref="warn"/>
     </logger>
-    <logger name="emmc" additivity="true" level="info">
+    <logger name="org.showcase" additivity="true" level="info">
         <appender-ref ref="info"/>
     </logger>
-    <logger name="emmc" additivity="true" level="debug">
+    <logger name="org.showcase" additivity="true" level="debug">
         <appender-ref ref="debug"/>
     </logger>
 
     <root level="info">
         <appender-ref ref="STDOUT"/>
-<!--        <appender-ref ref="info"/>-->
-<!--        <appender-ref ref="error"/>-->
-<!--        <appender-ref ref="debug"/>-->
-<!--        <appender-ref ref="warn"/>-->
-<!--        <appender-ref ref="stash"/>-->
     </root>
 </configuration>

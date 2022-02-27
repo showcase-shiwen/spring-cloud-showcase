@@ -93,24 +93,6 @@
     </dependencyManagement>
 
     <build>
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-site-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <locales>en,fr</locales>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--            &lt;!&ndash;热部署所需plugin&ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <fork>true</fork>-->
-<!--                    <addResources>true</addResources>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
     </build>
 
 

@@ -11,7 +11,6 @@ import org.springframework.context.annotation.ComponentScans;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
-//@EnableFeignClients({"org.showcase.api.user"})
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);

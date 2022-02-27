@@ -16,11 +16,11 @@ public class LogInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception arg3) throws Exception {
+        MDC.remove(TRACE_ID);
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView arg3) throws Exception {
-        MDC.remove(TRACE_ID);
     }
 
     @Override
@@ -32,6 +32,7 @@ public class LogInterceptor implements HandlerInterceptor {
         } else {
             MDC.put(TRACE_ID, traceId);
         }
+        response.addHeader(TRACE_ID,traceId);
         return true;
     }
 

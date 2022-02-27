@@ -1,0 +1,25 @@
+##服务实例列表
+GET http://localhost:5002/order/services
+Accept: application/json
+###
+
+##服务实例
+GET http://localhost:5002/order/instance
+Accept: application/json
+
+
+### Send POST request with body as parameters
+POST http://localhost:5002/order/save
+Content-Type: application/x-www-form-urlencoded
+
+userId=999&amount=10
+
+###
+
+### Send POST request with body as parameters
+POST http://localhost/showcase-service-order/order/save
+Content-Type: application/x-www-form-urlencoded
+
+userId=999&amount=10
+
+###

@@ -3,8 +3,8 @@
 
     <property name="LOG_HOME" value="logs"/>
     <property name="PROJECT_NAME" value="showcase-gateway"/>
-    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] [%thread] [%-5level] %c:%L -- %msg%n"/>
-<!--    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] [%thread] [%-5level] %c:%L &#45;&#45; %msg%n"/>-->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] [%thread] [%level] %c:%L -- %msg%n"/>
+<!--    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] [%thread] [%level] %c:%L &#45;&#45; %msg%n"/>-->
     <!--参见  https://blog.csdn.net/foreverling/article/details/51385128-->
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -120,7 +120,7 @@
 
     <root level="info">
         <appender-ref ref="STDOUT"/>
-<!--        <appender-ref ref="info"/>-->
+        <appender-ref ref="info"/>
 <!--        <appender-ref ref="error"/>-->
 <!--        <appender-ref ref="debug"/>-->
 <!--        <appender-ref ref="warn"/>-->
