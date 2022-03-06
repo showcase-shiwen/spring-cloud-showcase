@@ -1,0 +1,31 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: showcase-gateway
+  cloud:
+    # 网关配置
+    gateway:
+      # 微服务名称配置
+      discovery:
+        locator:
+          enabled: true # 设置为true 请求路径前可以添加微服务名称
+#          lower-case-service-id: true # 允许为小写
+      routes:
+        - id: showcase-service-order
+          uri: lb://showcase-service-order
+          predicates:
+            - name: Path
+              args:
+                pattern: '/showcase-service-order/**'
+#        - id: showcase-service-user
+#          uri: lb://showcase-service-user
+#          predicates:
+#            - Path=/showcase-service-user/**
+#        - id: showcase-service-system
+#          uri: lb://showcase-service-system
+#          predicates:
+#            - Path=/showcase-service-system/**
+    nacos:
+      discovery:
+        server-addr: 192.168.1.5:8848
