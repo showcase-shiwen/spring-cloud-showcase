@@ -6,18 +6,30 @@ spring:
   cloud:
     # 网关配置
     gateway:
-      # 微服务名称配置
+
       discovery:
         locator:
           enabled: true # 设置为true 请求路径前可以添加微服务名称
-#          lower-case-service-id: true # 允许为小写
       routes:
         - id: showcase-service-order
           uri: lb://showcase-service-order
           predicates:
-            - name: Path
-              args:
-                pattern: '/showcase-service-order/**'
+            - Path=/order-service/**
+          filters:
+            - StripPrefix=1
+            #这里重写了跳转地址，转成真实的user-center;也可以自定义地址
+            - RewritePath=/api(?<remaining>/?.*), /showcase-service-order$\{remaining}
+        - id: test
+          uri: https://www.baidu.com
+          predicates:
+            - Path=/baidu
+          filters:
+            - StripPrefix=1
+              # 这里配置的 StripPrefix 会将请求的 Path 去除掉前缀。
+              # 例如：我们以第一个 Route 举例子，假设我们请求 http://127.0.0.1:8888/baidu1 时：
+              # 如果有配置 StripPrefix 过滤器，则转发到的最终 URI 为 https://www.baidu.com，正确返回首页
+              # 如果未配置 StripPrefix 过滤器，转发到的最终 URI 为 https://www.baidu.com/baidu1，错误返回 404
+
 #        - id: showcase-service-user
 #          uri: lb://showcase-service-user
 #          predicates:
@@ -29,3 +41,5 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.1.5:8848
+      ip: 192.168.0.101
+      port: 8000

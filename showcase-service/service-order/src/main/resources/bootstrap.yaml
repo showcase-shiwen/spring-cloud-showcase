@@ -8,6 +8,9 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.1.5:8848
+        ip: 192.168.0.101
+        port: 5002
+
       config:
         server-addr: 192.168.1.5:8848
         file-extension: yaml

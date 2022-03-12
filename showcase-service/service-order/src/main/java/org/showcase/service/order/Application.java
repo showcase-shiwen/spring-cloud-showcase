@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients({"org.showcase.api.user"})
+@EnableFeignClients({"org.showcase.api"})
 public class    Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);

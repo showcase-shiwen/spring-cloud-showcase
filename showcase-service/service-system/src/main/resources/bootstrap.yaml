@@ -1,14 +1,20 @@
+server:
+  port: 5001
 spring:
   application:
     name: showcase-service-system
   cloud:
     nacos:
+      discovery:
+        server-addr: 192.168.1.5:8848
+        ip: 192.168.0.101
+        port: 5001
       config:
         server-addr: 192.168.1.5:8848
         file-extension: yaml
         prefix: showcase
-      discovery:
-        server-addr: 192.168.1.5:8848
-
-
-
+# 设置Ribbon的超时时间
+ribbon:
+  ConnectTimeout: 3000 # 连接超时时间 默认1s  默认单位毫秒
+  ReadTimeout: 3000 # 逻辑处理的超时时间 默认1s 默认单位毫秒
+name: ${application.name}
