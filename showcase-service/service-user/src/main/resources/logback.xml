@@ -2,7 +2,7 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
 
     <property name="LOG_HOME" value="logs"/>
-    <property name="PROJECT_NAME" value="showcase-service-user"/>
+    <property name="PROJECT_NAME" value="service-user"/>
     <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] [%thread] [%level] %c:%L -- %msg%n"/>
     <!--参见  https://blog.csdn.net/foreverling/article/details/51385128-->
 

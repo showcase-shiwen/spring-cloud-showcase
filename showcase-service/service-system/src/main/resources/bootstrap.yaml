@@ -2,15 +2,16 @@ server:
   port: 5001
 spring:
   application:
-    name: showcase-service-system
+    name: service-system
   cloud:
+    inetutils:
+      preferredNetworks:
+        - 127
     nacos:
       discovery:
-        server-addr: 192.168.1.5:8848
-        ip: 192.168.0.101
-        port: 5001
+        server-addr: 192.168.0.100:8848
       config:
-        server-addr: 192.168.1.5:8848
+        server-addr: 192.168.0.100:8848
         file-extension: yaml
         prefix: showcase
 # 设置Ribbon的超时时间
