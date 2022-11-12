@@ -1,0 +1,28 @@
+server:
+  port: 5000
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: showcase-auth
+  cloud:
+    inetutils:
+      preferredNetworks:
+        - 192.168
+    nacos:
+      discovery:
+        server-addr: 139.186.219.63:8848
+      config:
+        server-addr: 139.186.219.63:8848
+        file-extension: yaml
+        shared-configs[0]:
+          data-id: showcase.yaml
+          refresh: true
+        shared-configs[1]:
+          data-id: showcase-spring.yaml
+          refresh: true
+# 设置Ribbon的超时时间
+ribbon:
+  ConnectTimeout: 3000 # 连接超时时间 默认1s  默认单位毫秒
+  ReadTimeout: 3000 # 逻辑处理的超时时间 默认1s 默认单位毫秒

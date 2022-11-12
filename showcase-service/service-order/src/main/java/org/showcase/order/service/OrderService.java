@@ -18,6 +18,9 @@ public class OrderService {
         String orderId= UUID.randomUUID().toString();
         log.info("handle order save business");
         UserVo userVo=userClient.getUserById(userId);
+        if(userVo==null){
+            log.error("用户服务异常 没有返回");
+        }
         log.info("orderId:{} userVo：{}",orderId,userVo);
         return orderId;
     }

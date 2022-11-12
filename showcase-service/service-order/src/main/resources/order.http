@@ -17,7 +17,7 @@ userId=999&amount=10
 ###
 
 ### Send POST request with body as parameters
-POST http://localhost:8000/showcase-service-order/order/save
+POST http://localhost:8000/service-order/order/save
 Content-Type: application/x-www-form-urlencoded
 
 userId=999&amount=10

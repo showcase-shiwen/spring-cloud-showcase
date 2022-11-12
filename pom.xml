@@ -13,6 +13,7 @@
         <module>showcase-service</module>
         <module>showcase-gateway</module>
         <module>showcase-common</module>
+        <module>showcase-auth</module>
     </modules>
 
     <!--统一管理jar包和版本-->
@@ -56,6 +57,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <!--lombok-->
             <dependency>
                 <groupId>org.projectlombok</groupId>

@@ -1,4 +1,4 @@
-package org.showcase.order.rest;
+package org.showcase.order.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.showcase.order.service.OrderService;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @Slf4j
 @RequestMapping("order")
-public class OrderRest {
+public class OrderController {
 
     @Autowired
     private OrderService orderService;

@@ -9,6 +9,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 @RestController
 @Slf4j
 public class UserFeign implements UserClient {
@@ -17,7 +19,12 @@ public class UserFeign implements UserClient {
     private UserService userService;
 
     @Override
-    public UserVo getUserById(Long userId) {
+    public UserVo getUserById(Long userId)  {
+//        try {
+//            TimeUnit.SECONDS.sleep(30);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         User user= userService.getByUserId(userId);
         if(user==null){
             return null;

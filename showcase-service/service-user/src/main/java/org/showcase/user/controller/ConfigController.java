@@ -1,4 +1,4 @@
-package org.showcase.user.rest;
+package org.showcase.user.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("config")
 @Slf4j
 @RefreshScope
-public class ConfigRest {
+public class ConfigController {
     @GetMapping("get")
     public String get(@Value("${name:default}") String name){
         log.info("config get:{}",name);

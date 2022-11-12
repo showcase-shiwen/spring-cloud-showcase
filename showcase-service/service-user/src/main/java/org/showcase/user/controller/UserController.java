@@ -1,4 +1,4 @@
-package org.showcase.user.rest;
+package org.showcase.user.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.showcase.user.entity.User;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 @RequestMapping("user")
-public class UserRest {
+public class UserController {
 
     @Autowired
     private UserService userService;
