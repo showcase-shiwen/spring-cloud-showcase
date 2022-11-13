@@ -3,6 +3,7 @@ package org.showcase.auth.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,7 +13,13 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.oauth2.provider.token.TokenEnhancer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  授权码模式(Authorization Code)
@@ -51,8 +58,16 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private ClientDetailsService clientDetailsService;
 
-//    @Autowired
-//    private  TokenStore tokenStore;
+    @Autowired
+    private  TokenStore tokenStore;
+
+    @Autowired
+    private JwtAccessTokenConverter jwtAccessTokenConverter;
+
+    @Autowired
+    private JwtAccessTokenConverter jwtTokenEnhancer;
+    @Autowired
+    private TokenEnhancer tokenEnhancer;
 
 
     //配置授权服务器的客户端详情
@@ -80,16 +95,28 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     //授权服务器端点配置
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        //配置密码编码器
+        //获取自定义tokenGranter
+
+        // 配置端点
         endpoints
-//                .tokenStore(tokenStore)
+                .tokenStore(tokenStore)
                 .authenticationManager(authenticationManager)
 //                .userDetailsService(userDetailsService)
+                .allowedTokenEndpointRequestMethods(HttpMethod.POST)
         ;
 
-//        配置端点
 
         //扩展token返回结果
+        //扩展token返回结果
+        if (jwtAccessTokenConverter != null && jwtTokenEnhancer != null) {
+            TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+            List<TokenEnhancer> enhancerList = new ArrayList<>();
+            enhancerList.add(jwtTokenEnhancer);
+            enhancerList.add(tokenEnhancer);
+            tokenEnhancerChain.setTokenEnhancers(enhancerList);
+            //jwt增强
+            endpoints.tokenEnhancer(tokenEnhancerChain).accessTokenConverter(jwtAccessTokenConverter);
+        }
     }
 
     /**

@@ -12,8 +12,16 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 
-//@Configuration
-//@EnableResourceServer
+/**
+ * 1.此处使用的
+ *  ResourceServerConfigurerAdapter是spring-security-oauth2中的，
+ *  WebSecurityConfigurerAdapter是spring-security-config中的；
+ *
+ * 2.同时使用上面的两种配置的时候，如果两者配种存在重写相同的方法时，
+ * 后者的会出现配置不生效的问题，比如重写了configure这个方法（参数final不影响）
+ */
+@Configuration
+@EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
