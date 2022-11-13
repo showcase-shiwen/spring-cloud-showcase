@@ -57,21 +57,28 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!-- 实现对 Spring Security OAuth2 的自动配置 -->
         <dependency>
-            <artifactId>spring-cloud-starter-oauth2</artifactId>
-            <groupId>org.springframework.cloud</groupId>
+            <groupId>org.springframework.security.oauth.boot</groupId>
+            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <artifactId>spring-cloud-starter-oauth2</artifactId>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--        </dependency>-->
         <!--使用redis存放token-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <!--密码加密解密依赖包-->
-        <dependency>
-            <groupId>org.jasypt</groupId>
-            <artifactId>jasypt</artifactId>
-            <version>1.9.2</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.jasypt</groupId>-->
+<!--            <artifactId>jasypt</artifactId>-->
+<!--            <version>1.9.2</version>-->
+<!--        </dependency>-->
 
     </dependencies>
 

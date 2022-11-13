@@ -1,0 +1,3 @@
+### GET request with a header
+GET http://localhost:5000/oauth/token?grant_type=password&client_id=app&appsecret=redirect_uri=https://www.baidu.com&username=lishiwen&password=123456
+Accept: application/json

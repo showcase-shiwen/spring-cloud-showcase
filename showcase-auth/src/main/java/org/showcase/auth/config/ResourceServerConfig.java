@@ -12,8 +12,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 
-@Configuration
-@EnableResourceServer
+//@Configuration
+//@EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -24,11 +24,12 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .antMatchers(
                         "/actuator/**",
                         "/oauth/**",
+                        "/login/**",
                         "/oauth/token",
                         "/v2/api-docs").permitAll()//放行上面配置的地址
                 .anyRequest().authenticated()//其它都需要权限
                 .and().csrf().disable();//禁用跨域
-
+        ;
         ;
     }
 }
