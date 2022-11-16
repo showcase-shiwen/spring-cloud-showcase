@@ -93,6 +93,15 @@
     </dependencyManagement>
 
     <build>
+<!--        <pluginManagement>-->
+<!--            <plugins>-->
+<!--                &lt;!&ndash;将springboot 工程打包成一个可运行的jar&ndash;&gt;-->
+<!--                <plugin>-->
+<!--                    <groupId>org.springframework.boot</groupId>-->
+<!--                    <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                </plugin>-->
+<!--            </plugins>-->
+<!--        </pluginManagement>-->
 
     </build>
 

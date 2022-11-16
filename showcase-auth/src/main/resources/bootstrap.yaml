@@ -12,9 +12,9 @@ spring:
         - 192.168
     nacos:
       discovery:
-        server-addr: 139.186.219.63:8848
+        server-addr: 192.168.56.1:8848
       config:
-        server-addr: 139.186.219.63:8848
+        server-addr: 192.168.56.1:8848
         file-extension: yaml
         shared-configs[0]:
           data-id: showcase.yaml
