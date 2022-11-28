@@ -1,5 +1,6 @@
 server:
-  port: 5003
+  port: 5005
+#  port: 5003
 spring:
   application:
     name: service-user

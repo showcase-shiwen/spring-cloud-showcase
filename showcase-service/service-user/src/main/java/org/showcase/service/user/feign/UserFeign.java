@@ -20,11 +20,11 @@ public class UserFeign implements UserClient {
 
     @Override
     public UserVo getUserById(Long userId)  {
-        try {
-            TimeUnit.SECONDS.sleep(30);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            TimeUnit.SECONDS.sleep(30);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         User user= userService.getByUserId(userId);
         if(user==null){
             return null;

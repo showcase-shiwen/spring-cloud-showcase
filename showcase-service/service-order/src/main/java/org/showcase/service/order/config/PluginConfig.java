@@ -17,8 +17,8 @@ import org.springframework.context.annotation.Configuration;
 })
 //自身  启用服务发现
 @EnableDiscoveryClient
-// 自身  启用服务发现
-@EnableFeignClients
+//扫描调用client
+@EnableFeignClients("org.showcase.api")
 @EnableHystrix
 public class PluginConfig {
 
